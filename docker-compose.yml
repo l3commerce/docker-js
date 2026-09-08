@@ -1,0 +1,36 @@
+# Services
+services:
+  # Node JS Services
+  app1:
+    image: node:24-slim
+    container_name: app1
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - ./www:/var/www
+    working_dir: /var/www/app1
+    user: "1000:1000"
+    expose:
+      - "3000"
+    command: "node server.mjs"
+    networks:
+      - app-network
+
+  # NGINX Service
+  web:
+    image: nginx:alpine
+    container_name: nodejs_web
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+
+# DOCKER Networks
+networks:
+  app-network:
+    name: nodejs-network
+    driver: bridge

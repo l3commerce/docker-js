@@ -1,0 +1,6 @@
+www/*
+!www/README.md
+!www/app1
+nginx/conf.d/*
+!nginx/conf.d/README.md
+!nginx/conf.d/app1.conf
