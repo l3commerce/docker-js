@@ -4,3 +4,5 @@ www/*
 nginx/conf.d/*
 !nginx/conf.d/README.md
 !nginx/conf.d/app1.conf
+compose/*
+!compose/README.md

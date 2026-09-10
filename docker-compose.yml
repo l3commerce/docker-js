@@ -1,3 +1,6 @@
+# Includes
+include:
+  - path: ./compose/l3commerce.yml  
 # Services
 services:
   # Node JS Services
@@ -7,8 +10,8 @@ services:
     restart: unless-stopped
     tty: true
     volumes:
-      - ./www:/var/www
-    working_dir: /var/www/app1
+      - ./www/app1:/var/www
+    working_dir: /var/www
     user: "1000:1000"
     expose:
       - "3000"
